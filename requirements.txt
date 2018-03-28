@@ -1,0 +1,4 @@
+intervaltree>=2.0.0
+tqdm>=4.0.0
+networkx>=1.0
+pandas>=0.20.0
