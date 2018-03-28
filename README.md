@@ -2,6 +2,9 @@
 
 This project contains a set of python scripts to create and visualize a list of co-occurences from the output of a UIMA pipeline.
 
+![co-occurences-image](https://raw.githubusercontent.com/ewoij/cooccurrences-graph/master/readme_images/graph.png)
+
+
 ## Input
 
 A directory of XMI files containing the following annotations:
@@ -138,8 +141,6 @@ Read the selected co-occurences and generate the report.
 In order to generate the list of sentences with annotations, the script will open all the json 'scope' files in which the selected co-ocurrences appears.
 
 To view the report, just open the file in your web browser. You need to have internet access. Some of the javascript libraries are referenced using a CDN.
-
-![co-occurences-image](https://raw.githubusercontent.com/ewoij/cooccurrences-graph/master/readme_images/graph.png)
 
 ### 4'. Update graph node positions
 ```
