@@ -2,8 +2,8 @@ import pandas as pd
 import os
 import arguments as args
 
-cooc_file = os.path.join(args.cooc_dir, 'coocurrences.csv')
-selected_cooc_file = os.path.join(args.cooc_dir, 'coocurrences.selected.csv')
+cooc_file = os.path.join(args.cooc_dir, 'cooccurrences.csv')
+selected_cooc_file = os.path.join(args.cooc_dir, 'cooccurrences.selected.csv')
 
 df = pd.read_csv(cooc_file, index_col=0)
 

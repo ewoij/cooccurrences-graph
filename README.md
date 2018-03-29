@@ -1,23 +1,23 @@
 # Co-occurrences Graph
 
-This project contains a set of python scripts to create and visualize a list of co-occurences from the output of a UIMA pipeline.
+This project contains a set of python scripts to create and visualize a list of co-occurrences from the output of a UIMA pipeline.
 
-![co-occurences-image](https://raw.githubusercontent.com/ewoij/cooccurrences-graph/master/readme_images/graph.png)
+![co-occurrences-image](https://raw.githubusercontent.com/ewoij/cooccurrences-graph/master/readme_images/graph.png)
 
 
 ## Input
 
 A directory of XMI files containing the following annotations:
- - Scope: The scope of the co-occurences. Ex: Sentence
- - Item: The co-occurences are created from this type of annotations. Ex: Country
- - [optional] Event: If specified only scopes containing this annotation will be used to generate the co-occurences.
+ - Scope: The scope of the co-occurrences. Ex: Sentence
+ - Item: The co-occurrences are created from this type of annotations. Ex: Country
+ - [optional] Event: If specified only scopes containing this annotation will be used to generate the co-occurrences.
 
 The exact UIMA type names can be configured.
 
 ## Output
- - Co-occurences csv files
+ - Co-occurrences csv files
  - Local web Graph report
-    - HTML report displaying the relationship between the co-occurences and the list of sentences with annotations for a selected relationship.
+    - HTML report displaying the relationship between the co-occurrences and the list of sentences with annotations for a selected relationship.
 
 ## Requirements
  - Python > 3
@@ -90,55 +90,55 @@ Example of a scope file:
 ]
 ```
 
-### 2. Build co-occurences
+### 2. Build co-occurrences
 ```
-python 02_build_coocurrences.py
+python 02_build_cooccurrences.py
 ```
 
-Loop through each scope of each document and generate co-occurences for each pair of inner annotations (item).
+Loop through each scope of each document and generate co-occurrences for each pair of inner annotations (item).
 
 Generate:
- - output/coocurrences.csv
+ - output/cooccurrences.csv
     - item_left, item_right, forward_count, backward_count, total_count, ratio
- - output/coocurrences.scope_ids.pkl
+ - output/cooccurrences.scope_ids.pkl
     - dictionary of cooccurence map to a list of (doc-id, scope-id) in which the appear
 
 Notes:
  - If event is specified, only scope containing the event will be selected
  - If a property specified value of it otherwise normalized covered-text
 
-![co-occurences-image](https://raw.githubusercontent.com/ewoij/cooccurrences-graph/master/readme_images/cooccurences.png)
+![co-occurrences-image](https://raw.githubusercontent.com/ewoij/cooccurrences-graph/master/readme_images/cooccurrences.png)
 
-### 3. Filter co-occurences
+### 3. Filter co-occurrences
 ```
-python 03_filter_cooccurences.py
+python 03_filter_cooccurrences.py
 ```
 
-This steps selects the co-occurences we want to see in the web report.
+This steps selects the co-occurrences we want to see in the web report.
 
 File generated:
- - cooccurences.selected.csv
+ - cooccurrences.selected.csv
 
 It create exactly the same csv file as in the previous step but with an additional column: 'selected'.
 
 The selection process is as follows and the arguments can be changed in arguments.py.
- 1. Filter out co-occurences where both items are identical
+ 1. Filter out co-occurrences where both items are identical
  2. Filter out based on ratio.
  3. Filter out based on total count.
 
-You can also select manually the co-occurences you want to appear in the report.
+You can also select manually the co-occurrences you want to appear in the report.
 
-![co-occurences-image](https://raw.githubusercontent.com/ewoij/cooccurrences-graph/master/readme_images/cooccurrences.selected.png)
+![co-occurrences-image](https://raw.githubusercontent.com/ewoij/cooccurrences-graph/master/readme_images/cooccurrences.selected.png)
 
 ### 4. Create graph
 ```
 python 04_create_graph.py
 ```
 
-Read the selected co-occurences and generate the report.
+Read the selected co-occurrences and generate the report.
  - output/graph/graph.html
 
-In order to generate the list of sentences with annotations, the script will open all the json 'scope' files in which the selected co-ocurrences appears.
+In order to generate the list of sentences with annotations, the script will open all the json 'scope' files in which the selected co-occurrences appears.
 
 To view the report, just open the file in your web browser. You need to have internet access. Some of the javascript libraries are referenced using a CDN.
 

@@ -8,8 +8,8 @@ import shutil
 import networkx as nx
 import arguments as args
 
-cooc_file = os.path.join(args.cooc_dir, 'coocurrences.selected.csv')
-cooc_scopeids_file = os.path.join(args.cooc_dir, 'coocurences.scope_ids.pkl')
+cooc_file = os.path.join(args.cooc_dir, 'cooccurrences.selected.csv')
+cooc_scopeids_file = os.path.join(args.cooc_dir, 'cooccurrences.scope_ids.pkl')
 
 # read cooc + scope ids
 df = pd.read_csv(cooc_file, index_col=0)

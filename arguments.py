@@ -21,6 +21,6 @@ item_type = 'item'
 item_property = 'value'
 # [optional] the type of the event used to filter scope
 event_type = 'event'
-# parameters to filter the co-occurences
+# parameters to filter the co-occurrences
 cooc_min_count = 7
 cooc_min_ratio = 0.66
